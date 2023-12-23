@@ -1,0 +1,18 @@
+{
+  "repository": {
+    "name": "thitiphatx's module",
+    "author": "Thitiphatx"
+  },
+  "modules": [
+    {
+      "name": "AnimeNani",
+      "description": "A module to get data from ANIMENANI",
+      "icon": "https://anime-nani.net/wp-content/uploads/2021/11/icon88-150x150.jpg",
+      "version": "0.0.1",
+      "id": "animenani",
+      "file": "/modules/animenani.js",
+      "meta": [],
+      "mochiJSVersion": "0.0.2"
+    }
+  ]
+}
