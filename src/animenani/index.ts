@@ -71,7 +71,7 @@ export default class AnimeNani extends SourceModule implements VideoContent {
       const $ = cheerio.load(html.text());
       const pages = $('#main > div.pagination > ul.pagination > li.page-item');
       const currentPageIndex = pages.filter('li.active').index();
-      const items: Playlist[] = $('#main > div.row.ez-row.ez-bt5.hentry > article').map((anime) => {
+      const items: Playlist[] = $('#main > div.row.ez-row.ez-bt5.hentry > article').map((_, anime) => {
         const animeRef = $(anime);
         const url = animeRef.find('div.movie-box1 > div.img > a').attr('href') ?? '';
         const name = animeRef.find('div.movie-box1 > h3 > div.anime-title').text();
@@ -111,7 +111,7 @@ export default class AnimeNani extends SourceModule implements VideoContent {
     const $ = cheerio.load(html.text());
     const info = $('article > div.anime > div.container > div:nth-child(4) > blockquote > p:nth-child(1)').text().trim()
     const yearReleased = $('article > div.anime > div.container > div:nth-child(2) > div > span:nth-child(13)').text().split(", ")[1]
-    const genres = $('article > div.anime > div.container > div.anime-flex > div.anime-flexright > div:nth-child(5) > span.ez-e-t-second > a').map((item)=> {
+    const genres = $('article > div.anime > div.container > div.anime-flex > div.anime-flexright > div:nth-child(5) > span.ez-e-t-second > a').map((_, item)=> {
       return $(item).text().split(" ")[0]
     }).get();
     return {
