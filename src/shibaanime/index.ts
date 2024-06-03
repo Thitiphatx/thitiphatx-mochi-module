@@ -4,19 +4,12 @@ import {
     DiscoverListingType,
     Paging,
     Playlist,
-    PlaylistItem,
-    PlaylistGroup,
     PlaylistDetails,
-    PlaylistEpisodeServer,
-    PlaylistEpisodeServerFormatType,
-    PlaylistEpisodeServerQualityType,
     PlaylistEpisodeServerRequest,
     PlaylistEpisodeServerResponse,
     PlaylistEpisodeSource,
     PlaylistEpisodeSourcesRequest,
     PlaylistItemsResponse,
-    PlaylistStatus,
-    PlaylistType,
     SearchFilter,
     SearchQuery,
     SourceModule,
@@ -24,8 +17,6 @@ import {
     PlaylistItemsOptions,
 } from "@mochiapp/js";
 
-import * as cheerio from "cheerio";
-import { baseUrl } from "./utils/constants";
 import { getPlaylistDetails } from "./scrapper/getPlaylistDetails";
 import { getPlaylistEpisodes } from "./scrapper/getPlaylistEpisodes";
 import { getPlaylistEpisodeServer } from "./scrapper/getPlaylistEpisodeServer";
@@ -67,10 +58,12 @@ export default class ShibaAnime extends SourceModule {
     }
 
     async playlistEpisodes(playlistId: string, options?: PlaylistItemsOptions | undefined): Promise<PlaylistItemsResponse> {
+        console.log(options)
         return await getPlaylistEpisodes(playlistId);
     }
 
     async playlistEpisodeSources(req: PlaylistEpisodeSourcesRequest): Promise<PlaylistEpisodeSource[]> {
+        console.log(req)
         return [
             {
                 displayName: "Main",
